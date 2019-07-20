@@ -39,7 +39,8 @@ class EarlyStopping:
         
     def __call__(self, val_loss, model):
         if self.times_called < self.skip_first_n_epochs:
-            print('\n\tSkipping the check for early stopping', end='')
+            if self.verbose:
+                print('\n\tSkipping the check for early stopping', end='')
             self.times_called += 1
             return
         
